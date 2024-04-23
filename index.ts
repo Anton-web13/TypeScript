@@ -1,10 +1,16 @@
 interface user {
     name: string,
 }
-
-const first = (user: user) => {
-    console.log(user.name);
+//////////////////////////////////////////////////////
+const firstInterface = (user: user) => {
+    console.log(user);
 };
 
+firstInterface({ name: 'Anton'}); 
+//////////////////////////////////////////////////////
+const first = (user: string) => {
+    console.log(user);
+};
 
-first({ name: 'Anton'}); 
+first('Anton');
+//////////////////////////////////////////////////////

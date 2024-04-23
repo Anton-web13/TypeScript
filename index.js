@@ -1,5 +1,9 @@
 "use strict";
+// interface user {
+//     name: string,
+// }
 const first = (user) => {
-    console.log(user.name);
+    console.log(user);
 };
-first({ name: 'Anton' });
+// first({ name: 'Anton'}); 
+first('Anton');
