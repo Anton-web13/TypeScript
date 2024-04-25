@@ -204,4 +204,28 @@ const enum RolesConst {
 
 const res2 = Roles.ADMIN;
 
+//-------------------------018---------Test-------------------
 
+enum StatusQuestions {
+    Published = 'published',
+    Draft = 'draft',
+    Deleted = 'deleted',
+}
+
+async function getFaqs(req: {
+    topicId: number,
+    status: StatusQuestions,
+}): Promise<{
+    question: string,
+    answer: string,
+    tags: string[],
+    likes: number,
+    status: StatusQuestions,
+}[]> {
+	const res = await fetch('/faqs', {
+		method: 'POST',
+		body: JSON.stringify(req)
+	});
+	const data = await res.json();
+	return data;
+}
