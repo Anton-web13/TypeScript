@@ -62,7 +62,17 @@ for (const skill of skills) {
     // console.log(skill);
 }
 ;
-console.log(skills
+// console.log(
+skills
     .filter((skill) => skill !== 'Devops')
     .map((skill) => { return 1; })
-    .reduce((first, second) => first + second));
+    .reduce((first, second) => first + second);
+// );
+//-------------------------014------Tuple----------------------
+const skillTuples = [1, 'Devops'];
+// const id = skillTuples[0];
+// const skillName = skillTuples[1];
+const [id, skillname] = skillTuples;
+const arr = [1, 'Devops', true, false];
+const [idw, arrName, boolean] = arr;
+console.log(boolean);
