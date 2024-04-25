@@ -95,4 +95,23 @@ let info: {
 
 
 
+//-------------------------014----------------------------
+
+
+// const skills: string[] = ['dev', 'devops', 1];
+const skills: string[] = ['Dev', 'Devops', 'Testing'];
+
+for(const skill of skills) {
+    // console.log(skill);
+};
+
+console.log(
+skills
+    .filter((skill: string) => skill !== 'Devops')
+    .map((skill: string) => {return 1})
+    .reduce((first, second) => first + second)
+);
+
+
+
 

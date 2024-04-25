@@ -44,3 +44,25 @@ const user = {
 // 
 console.log(getFullNameBoolean(user));
 //-------------------------013----------------------------
+let info = {
+    "officeId": 45,
+    "isOpened": false,
+    "contacts": {
+        "phone": "+79100000000",
+        "email": "my@email.ru",
+        "address": {
+            "city": "Москва"
+        }
+    }
+};
+//-------------------------014----------------------------
+// const skills: string[] = ['dev', 'devops', 1];
+const skills = ['Dev', 'Devops', 'Testing'];
+for (const skill of skills) {
+    // console.log(skill);
+}
+;
+console.log(skills
+    .filter((skill) => skill !== 'Devops')
+    .map((skill) => { return 1; })
+    .reduce((first, second) => first + second));
