@@ -123,3 +123,14 @@ const skillTuples: [number, string] = [1, 'Devops'];
 const [id, skillname] = skillTuples;
 
 const arr: [number, string, ...boolean[]] = [1, 'Devops', true, false];
+
+
+//-------------------------016------Readonly----------------------
+
+
+const skillReadonly: readonly [number, string] = [1, 'Devops'];
+const skilsRead: readonly string[] = ['1', 'Devops'];
+const skilsReadJN: Array<string> = ['1', 'Devops'];
+const skilsReadJNRead: ReadonlyArray<string> = ['1', 'Devops'];
+
+
