@@ -68,11 +68,60 @@ skills
     .map((skill) => { return 1; })
     .reduce((first, second) => first + second);
 // );
-//-------------------------014------Tuple----------------------
+//-------------------------015------Tuple----------------------
 const skillTuples = [1, 'Devops'];
 // const id = skillTuples[0];
 // const skillName = skillTuples[1];
 const [id, skillname] = skillTuples;
 const arr = [1, 'Devops', true, false];
-const [idw, arrName, boolean] = arr;
-console.log(boolean);
+//-------------------------016------Readonly----------------------
+const skillReadonly = [1, 'Devops'];
+const skilsRead = ['1', 'Devops'];
+const skilsReadJN = ['1', 'Devops'];
+const skilsReadJNRead = ['1', 'Devops'];
+//-------------------------017------Enums----------------------
+// const resEnums = {
+//     message: 'Die Beyzahlunf ist erfolgreich',
+//     statusCode: 1,
+// };
+// enum StatusCode {
+//     SUCCESS = 1,
+//     IN_PROCESS,
+//     FAILED,
+// };
+// // 1 - Erfolg
+// // 2 - in Progress
+// // 3 - anbgelehnt
+var StatusCode;
+(function (StatusCode) {
+    StatusCode["SUCCESS"] = "s";
+    StatusCode["IN_PROCESS"] = "p";
+    StatusCode["FAILED"] = "f";
+})(StatusCode || (StatusCode = {}));
+;
+// 's' - Erfolg
+// 'p' - in Progress
+// 'f' - anbgelehnt
+const resEnums = {
+    message: 'Die Beyzahlunf ist erfolgreich',
+    statusCode: StatusCode.SUCCESS,
+};
+if (resEnums.statusCode === StatusCode.SUCCESS) {
+}
+;
+function action(status) {
+    // console.log(status);
+}
+;
+action(StatusCode.IN_PROCESS);
+const compute = () => {
+    return 3;
+};
+var Roles;
+(function (Roles) {
+    Roles[Roles["ADMIN"] = 0] = "ADMIN";
+    Roles[Roles["USER"] = compute()] = "USER";
+})(Roles || (Roles = {}));
+;
+;
+const res2 = Roles.ADMIN;

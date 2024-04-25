@@ -133,4 +133,75 @@ const skilsRead: readonly string[] = ['1', 'Devops'];
 const skilsReadJN: Array<string> = ['1', 'Devops'];
 const skilsReadJNRead: ReadonlyArray<string> = ['1', 'Devops'];
 
+//-------------------------017------Enums----------------------
+
+
+// const resEnums = {
+//     message: 'Die Beyzahlunf ist erfolgreich',
+//     statusCode: 1,
+// };
+
+// enum StatusCode {
+//     SUCCESS = 1,
+//     IN_PROCESS,
+//     FAILED,
+// };
+
+// // 1 - Erfolg
+// // 2 - in Progress
+// // 3 - anbgelehnt
+
+
+enum StatusCode {
+    SUCCESS = 's',
+    IN_PROCESS = 'p',
+    FAILED = 'f',
+};
+
+// 's' - Erfolg
+// 'p' - in Progress
+// 'f' - anbgelehnt
+
+const resEnums = {
+    message: 'Die Beyzahlunf ist erfolgreich',
+    statusCode: StatusCode.SUCCESS,
+};
+
+if (resEnums.statusCode === StatusCode.SUCCESS) {
+
+};
+
+
+function action(status: StatusCode) {
+    // console.log(status);
+};
+
+action(StatusCode.IN_PROCESS)
+
+
+const compute = () => {
+    return 3;
+};
+
+
+enum Roles {
+    ADMIN,
+    USER = compute(),
+};
+
+
+// function test(x: {ADMIN: number}) {
+
+// };
+
+// test(Roles);
+
+
+const enum RolesConst {
+    ADMIN = 1,
+    USER = 2,
+};
+
+const res2 = Roles.ADMIN;
+
 
