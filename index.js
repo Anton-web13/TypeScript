@@ -26,6 +26,7 @@ let res = revenue + bonus;
 // function getFullNameBoolean(firstname: boolean, surname: boolean) {
 //     return `${firstname} ${surname}`;
 // };
+//-------------------------012----------------------------
 function getFullNameBoolean(user) {
     return `${user.firstname} ${user.surname}`;
 }
@@ -35,5 +36,11 @@ const user = {
     surname: 'Menschlich',
     city: 'Minsk',
     age: 33,
+    skills: {
+        dev: true,
+        devops: true,
+    }
 };
+// 
 console.log(getFullNameBoolean(user));
+//-------------------------013----------------------------
