@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 //////////////////////////////////////////////////////
 const firstInterface = (user) => {
     console.log(user);
@@ -125,3 +134,20 @@ var Roles;
 ;
 ;
 const res2 = Roles.ADMIN;
+//-------------------------018---------Test-------------------
+var StatusQuestions;
+(function (StatusQuestions) {
+    StatusQuestions["Published"] = "published";
+    StatusQuestions["Draft"] = "draft";
+    StatusQuestions["Deleted"] = "deleted";
+})(StatusQuestions || (StatusQuestions = {}));
+function getFaqs(req) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const res = yield fetch('/faqs', {
+            method: 'POST',
+            body: JSON.stringify(req)
+        });
+        const data = yield res.json();
+        return data;
+    });
+}
