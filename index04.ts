@@ -57,6 +57,27 @@ logMultipleIds('5454', true);
 
 
 
+//-----------------------021-----------------Literal Types-----------------
+
+
+// enum RequestType {
+//     GET = 'get',
+//     POST = 'post',
+// };
+
+
+const fetchWithAuth = (url: string, method: 'post' | 'get'): 1 | -1 => {
+    return 1;
+};
+
+fetchWithAuth('s', 'post');
+fetchWithAuth('s', 'get');
+
+// let method = 'post';
+let method = 'fyhftyu';
+// const method = 'post';
+
+fetchWithAuth('s', method as 'post');
 
 
 
