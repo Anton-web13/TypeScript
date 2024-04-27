@@ -53,7 +53,7 @@ const logMultipleIds = (a: string | number, b: string | boolean) => {
 };
 
 
-logMultipleIds('5454', true);
+// logMultipleIds('5454', true);
 
 
 
@@ -66,26 +66,84 @@ logMultipleIds('5454', true);
 // };
 
 
-const fetchWithAuth = (url: string, method: 'post' | 'get'): 1 | -1 => {
+// const fetchWithAuth = (url: string, method: 'post' | 'get'): 1 | -1 => {
+//     return 1;
+// };
+
+// fetchWithAuth('s', 'post');
+// fetchWithAuth('s', 'get');
+
+// // let method = 'post';
+// let method = 'fyhftyu';
+// // const method = 'post';
+
+// fetchWithAuth('s', method as 'post');
+
+
+//-----------------------022-----------------Type Aliases-----------------
+
+type httpMethod = 'post' | 'get';
+
+const fetchWithAuth = (url: string, method: httpMethod): 1 | -1 => {
     return 1;
 };
 
-fetchWithAuth('s', 'post');
-fetchWithAuth('s', 'get');
 
-// let method = 'post';
-let method = 'fyhftyu';
-// const method = 'post';
+// let userAliases: {
+//     name: string,
+//     age: number,
+//     skills: string[],
+// } = {
+//     name: 'asd',
+//     age: 23,
+//     skills: ['1', '2'],
+// };
 
-fetchWithAuth('s', method as 'post');
+type UserAliases = {
+    name: string,
+    age: number,
+    skills: string[],
+};
+
+type Role = {
+    name: string,
+    id: number,
+};
 
 
+let userAliases: UserAliases = {
+    name: 'asd',
+    age: 23,
+    skills: ['1', '2'],
+};
+
+// type UserWithRole = UserAliases & Role;
+type UserWithRole = {
+    user: UserAliases,
+    role: Role,
+};
+
+// let userWithRole: UserWithRole = {
+//     id: 1,
+//     name: 'asd',
+//     age: 23,
+//     skills: ['1', '2'],
+// };
 
 
+let userWithRole: UserWithRole = {
+    user: {
+        name: 'asd',
+        age: 23,
+        skills: ['1', '2'],
+    },
+    role: {
+        name: 'sfgdfg',
+        id: 1,
+    }
+};
 
-
-
-
+console.log(userWithRole);
 
 
 

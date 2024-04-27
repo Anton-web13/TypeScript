@@ -1,5 +1,5 @@
 "use strict";
-//-----------------------019-----------------Union-----------------
+//-----------------------020-----------------Union-----------------
 let arrUnion = ['xdfgdgdfg', true, 1];
 const logId = (id) => {
     // console.log(arrUnion);
@@ -35,6 +35,7 @@ const logObject = (obj) => {
         console.log(obj.b);
     }
 };
+// let a: 1 = 1; a ist für immer 1.
 const logMultipleIds = (a, b) => {
     if (a === b) {
         console.log(a, b);
@@ -43,4 +44,29 @@ const logMultipleIds = (a, b) => {
         console.log(b);
     }
 };
-logMultipleIds('5454', true);
+const fetchWithAuth = (url, method) => {
+    return 1;
+};
+let userAliases = {
+    name: 'asd',
+    age: 23,
+    skills: ['1', '2'],
+};
+// let userWithRole: UserWithRole = {
+//     id: 1,
+//     name: 'asd',
+//     age: 23,
+//     skills: ['1', '2'],
+// };
+let userWithRole = {
+    user: {
+        name: 'asd',
+        age: 23,
+        skills: ['1', '2'],
+    },
+    role: {
+        name: 'sfgdfg',
+        id: 1,
+    }
+};
+console.log(userWithRole);
