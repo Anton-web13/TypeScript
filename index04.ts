@@ -145,6 +145,115 @@ let userWithRole: UserWithRole = {
 
 console.log(userWithRole);
 
+//-----------------------023-----------------Interfaces-----------------
+
+interface UserAliasesInterfaces {
+    name: string,
+    age: number,
+    skills: string[],
+
+    log: (id: number) => string;
+};
+
+type UserAliasesInterfaces2 = {
+    name: string,
+    age: number,
+    skills: string[],
+
+    log: (id: number) => string;
+};
+
+// interface UserWithRoleInterface extends UserAliasesInterfaces {
+//     roleId: number,
+// }
+
+interface RoleInterfaces {
+    roleId: number,
+};
+
+interface UserWithRoleInterface extends UserAliasesInterfaces, RoleInterfaces {
+    createbAt: Date;
+}
+
+let userAliasesInterfaces: UserWithRoleInterface = {
+    name: 'asd',
+    age: 23,
+    skills: ['1', '2'],
+    roleId: 1,
+    createbAt: new Date(),
+
+    log(id) {
+        return '';
+    }
+};
+
+
+
+// {
+//     1: userAliasesInterfaces,
+//     2: userAliasesInterfaces,
+// }
+
+interface UserDic {
+    [index: number]: UserAliasesInterfaces
+};
+
+type UserDic2 = {
+    [index: number]: UserAliasesInterfaces
+};
+
+type ud = Record<number, UserAliasesInterfaces>;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
