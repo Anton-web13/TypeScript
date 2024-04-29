@@ -208,17 +208,61 @@ type ud = Record<number, UserAliasesInterfaces>;
 
 //-----------------------024-----------------Types und Interfaces-----------------
 
-interface UserName {
-    name: string,
-};
+// interface UserName {
+//     name: string,
+// };
+
+// interface UserName {
+//     age: number,
+// };
+
+// type ID = string | number;
+
+
+
+//-----------------------025-----------------Optional-----------------
 
 interface UserName {
-    age: number,
+    login: string,
+    password?: string,
 };
 
-type ID = string | number;
+// type UserName {
+//     login: string,
+//     password?: string,
+// };
+
+const userName: UserName = {
+    login: 'ldkfhbg',
+    password: '1',
+};
 
 
+// const multiply = (first: number, second: number = 5): number => {
+const multiply = (first: number, second?: number): number => {
+    // return first * second;
+    if (!second) {
+        return first * first;
+    }
+
+    return first * second;
+};
+
+interface UserPro {
+    login: string,
+    password?: {
+        type: 'primary' | 'secondary',
+    };
+};
+
+const testPass = (user: UserPro) => {
+    // const t = user.password!.type;
+    const t = user.password?.type;
+};
+
+const test = (param?: string) => {
+    const t = param ?? multiply(5); // oder param oder multiply(5)
+};
 
 
 
