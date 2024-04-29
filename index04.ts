@@ -206,9 +206,17 @@ type ud = Record<number, UserAliasesInterfaces>;
 
 
 
+//-----------------------024-----------------Types und Interfaces-----------------
 
+interface UserName {
+    name: string,
+};
 
+interface UserName {
+    age: number,
+};
 
+type ID = string | number;
 
 
 
