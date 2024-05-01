@@ -308,19 +308,52 @@ interface IResponseFailed{
 };
 
 
-// const get = (): IResponseSuccess | IResponseFailed {
+// const get = (): IResponseSuccess | IResponseFailed => {
 //     console.log();
 // }
 
+//-----------------------026-----------------Void-----------------
+
+const logVoid = (id: string | number): void => {
+    console.log(id);
+}
+
+const aVoid = logVoid(1);
 
 
+// const multiplyVoid = (f: number, s?: number): number | void => {
+//     if (!s) {
+//         return f * f;
+//     }
 
+//     // return f * s;
+// };
 
+const multiplyVoid = (f: number, s?: number) => {
+    if (!s) {
+        return f * f;
+    }
+};
 
+type voidFunction = () => void;
 
+const f1: voidFunction = () => {
 
+}
 
+const f2: voidFunction = () => {
+    return true;
+};
 
+const b = f2(); // wie bekommen void und mit dem Ergebnis können wir nix machen.
+
+const voidSkills = ['Dev', 'Devops'];
+
+const userVoid = {
+    s: ['s'],
+};
+
+voidSkills.forEach((skill) => userVoid.s.push(skill));
 
 
 
