@@ -143,7 +143,7 @@ let userWithRole: UserWithRole = {
     }
 };
 
-console.log(userWithRole);
+// console.log(userWithRole);
 
 //-----------------------023-----------------Interfaces-----------------
 
@@ -312,7 +312,7 @@ interface IResponseFailed{
 //     console.log();
 // }
 
-//-----------------------026-----------------Void-----------------
+//-----------------------027-----------------Void-----------------
 
 const logVoid = (id: string | number): void => {
     console.log(id);
@@ -357,10 +357,54 @@ voidSkills.forEach((skill) => userVoid.s.push(skill));
 
 
 
+//-----------------------028-----------------Unknown-----------------
+
+console.clear();
+
+let inputUnknown: unknown;
+
+inputUnknown = 3;
+inputUnknown = ['asd', 'sfdszdfg'];
+
+// let resUnknown: string = inputUnknown; // Fehler
+let resUnknown: any = inputUnknown;
+
+const run = (input: unknown) => {
+    if (typeof input == 'number') {
+        input++;
+    } else {
+        input;
+    }
+};
+
+const getData = async () => {
+    try {
+        await fetch('');
+    } catch(e) {
+        if (e instanceof Error) {   // dies immer zu benutzen
+            console.log(e.message);
+        }
+    }
+};
+
+// const getDataForce = async () => {
+//     try {
+//         await fetch('');
+//     } catch(err) {
+        // const e = err as Error;    // dies nicht benutzen
+//         // console.log(e);
+//     }
+// };
+
+// getData();
+
+type U1 = unknown | null;  // immer UNKNOWN, egal was danach steht. Es wird der BREITE Begriff genommen
+type I1 = unknown & string;  // hier STRING, es wird der ENGE Begriff genommen
 
 
 
 
+console.log(run(inputUnknown));
 
 
 
