@@ -494,13 +494,40 @@ const isString = (x: string | number): boolean => {
 };
 
 
-console.log(isString('true'));
+// console.log(isString('true'));
 
+//-----------------------030-----------------Null-----------------
 
+const letterNull: null = null;
+const letterNull1: any = null;
+const letterNull2: number = null;   // ist ein Fehler
+const letterNull3: string = null;   // ist ein Fehler
+const letterNull4: boolean = null;   // ist ein Fehler
+const letterNull5: undefined = null;   // ist ein Fehler
 
+interface UserNull {
+    name: string,
+}
 
+const getUser = () => {
+    if (Math.random() > 0.5) {
+        return null;
+    }
 
+    return {
+        name: 'Vasa',
+    } as UserNull
+};
 
+const uNull = getUser();
+// const n55 = uNull.name;  // undefined
+const n55 = uNull?.name;  // sting | undefined
+
+// or
+
+if (uNull) {
+const n55 = uNull.name;
+};
 
 
 
