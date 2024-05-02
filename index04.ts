@@ -500,10 +500,10 @@ const isString = (x: string | number): boolean => {
 
 const letterNull: null = null;
 const letterNull1: any = null;
-const letterNull2: number = null;   // ist ein Fehler
-const letterNull3: string = null;   // ist ein Fehler
-const letterNull4: boolean = null;   // ist ein Fehler
-const letterNull5: undefined = null;   // ist ein Fehler
+// const letterNull2: number = null;   // ist ein Fehler
+// const letterNull3: string = null;   // ist ein Fehler
+// const letterNull4: boolean = null;   // ist ein Fehler
+// const letterNull5: undefined = null;   // ist ein Fehler
 
 interface UserNull {
     name: string,
@@ -528,6 +528,81 @@ const n55 = uNull?.name;  // sting | undefined
 if (uNull) {
 const n55 = uNull.name;
 };
+
+
+//-----------------------031-----------------Приведение типов-----------------
+
+let letterNumber = 5;
+let letterString: string = letterNumber.toString();
+let eSting: string = new String(letterNumber).valueOf();
+let fBoolean: boolean = new Boolean(letterNumber).valueOf();
+
+let row = 'sdfgsdf';
+// let rowNumer: number = +row;
+let rowNumer: number = parseInt(row);
+
+// console.log(rowNumer);
+
+
+interface UserTyppe {
+    name: string,
+    email: string,
+    login: string,
+};
+////////////////////////////////////////////////////////
+const userType1: UserTyppe = {
+    name: 'Vasa',
+    email: 'vasiliy',
+    login: 'vaszLogin',
+};
+
+const userType2 = {
+    name: 'Vasa',
+    email: 'vasiliy',
+    login: 'vaszLogin',
+} as UserTyppe;
+
+const userType3 = <UserTyppe> {
+    name: 'Vasa',
+    email: 'vasiliy@gmail.com',
+    login: 'vaszLogin',
+};
+////////////////////////////////////////////////////////
+
+const userType: UserTyppe = {
+    name: 'Vasa',
+    email: 'vasiliy',
+    login: 'vaszLogin',
+};
+
+
+interface Admin {
+    name: string,
+    role: number,
+};
+
+const adminType: Admin = {    // falsch
+    ...userType,
+    role: 1,
+};
+
+// const adminType2: Admin = userType;    // falsch
+
+const userToAdmin = (user: UserTyppe): Admin => {    // richtig, die Umwandling, die nur brauchende Eigenschaften speichert.
+    return {
+        name: user.name,
+        role: 1,
+    }
+};
+
+
+
+
+
+
+
+
+
 
 
 

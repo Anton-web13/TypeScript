@@ -251,4 +251,30 @@ const isString = (x) => {
     // return false;
     genereate('aertsert');
 };
-console.log(isString('true'));
+// console.log(isString('true'));
+//-----------------------030-----------------Null-----------------
+const letterNull = null;
+const letterNull1 = null;
+const getUser = () => {
+    if (Math.random() > 0.5) {
+        return null;
+    }
+    return {
+        name: 'Vasa',
+    };
+};
+const uNull = getUser();
+// const n55 = uNull.name;  // undefined
+const n55 = uNull === null || uNull === void 0 ? void 0 : uNull.name; // sting | undefined
+// or
+if (uNull) {
+    const n55 = uNull.name;
+}
+;
+//-----------------------031-----------------Приведение типов-----------------
+let letterNumber = 5;
+let letterString = letterNumber.toString();
+let row = 'sdfgsdf';
+// let rowNumer: number = +row;
+let rowNumer = parseInt(row);
+console.log(rowNumer);
