@@ -404,14 +404,97 @@ type I1 = unknown & string;  // hier STRING, es wird der ENGE Begriff genommen
 
 
 
-console.log(run(inputUnknown));
+// console.log(run(inputUnknown));
+
+
+//-----------------------029-----------------Never-----------------
+// console.clear();
+
+
+// const genereateError = (message: string) => {     // so ist "never"
+//     throw new Error(message);
+// };
+
+// function genereate(message: string) {     // so ist "void"
+//     throw new Error(message);
+// }
 
 
 
+function genereate(message: string): never {
+    throw new Error(message);
+}
+
+// const dumError = () => {     // so ist "never"
+//     while(true);
+
+// }
+
+// function dumError() {     // so ist "void"
+//     while(true);
+// }
+
+function dumError(): never {
+    while(true);
+}
+
+function rec() {     // so ist "never"
+    return rec();
+};
+
+// const aNEver: never = 1;    // ist es Fehler.
+
+type payumentAction = 'refund' | 'checkout' | 'reject';
+
+// function proccessAction(action: payumentAction) {
+//     switch (action) {
+//         case 'refund':
+//             // ...
+//             break;
+//         case 'checkout':
+//             // ...
+//             break;
+//         case 'reject':
+//             // ...
+//             break;
+//         default:
+//             const _: never = action;
+//             throw new Error('Es gibt solchen Action nicht.'); 
+//     }
+// };
+
+const proccessAction = (action: payumentAction) => {
+    switch (action) {
+        case 'refund':
+            // ...
+            break;
+        case 'checkout':
+            // ...
+            break;
+        case 'reject':
+            // ...
+            break;
+        default:
+            const _: never = action;
+            throw new Error('Es gibt solchen Action nicht.'); 
+    }
+};
 
 
+const isString = (x: string | number): boolean => {
+    if(typeof x == 'string') {
+        return true;
+    } else if (typeof x == 'number') {
+        return false;
+    }
+
+    // return false;
+
+    genereate('aertsert');
+};
 
 
+console.log(isString('true'));
 
 
 

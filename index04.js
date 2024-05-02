@@ -178,18 +178,77 @@ const getData = () => __awaiter(void 0, void 0, void 0, function* () {
         yield fetch('');
     }
     catch (e) {
-        if (e instanceof Error) {
+        if (e instanceof Error) { // dies immer zu benutzen
             console.log(e.message);
         }
     }
 });
-// const getDataForce = async () => {
-//     try {
-//         await fetch('');
-//     } catch(err) {
-//         const e = err as Error;
-//         // console.log(e);
+// console.log(run(inputUnknown));
+//-----------------------029-----------------Never-----------------
+// console.clear();
+// const genereateError = (message: string) => {     // so ist "never"
+//     throw new Error(message);
+// };
+// function genereate(message: string) {     // so ist "void"
+//     throw new Error(message);
+// }
+function genereate(message) {
+    throw new Error(message);
+}
+// const dumError = () => {     // so ist "never"
+//     while(true);
+// }
+// function dumError() {     // so ist "void"
+//     while(true);
+// }
+function dumError() {
+    while (true)
+        ;
+}
+function rec() {
+    return rec();
+}
+;
+// function proccessAction(action: payumentAction) {
+//     switch (action) {
+//         case 'refund':
+//             // ...
+//             break;
+//         case 'checkout':
+//             // ...
+//             break;
+//         case 'reject':
+//             // ...
+//             break;
+//         default:
+//             const _: never = action;
+//             throw new Error('Es gibt solchen Action nicht.'); 
 //     }
 // };
-getData();
-console.log(run(inputUnknown));
+const proccessAction = (action) => {
+    switch (action) {
+        case 'refund':
+            // ...
+            break;
+        case 'checkout':
+            // ...
+            break;
+        case 'reject':
+            // ...
+            break;
+        default:
+            const _ = action;
+            throw new Error('Es gibt solchen Action nicht.');
+    }
+};
+const isString = (x) => {
+    if (typeof x == 'string') {
+        return true;
+    }
+    else if (typeof x == 'number') {
+        return false;
+    }
+    // return false;
+    genereate('aertsert');
+};
+console.log(isString('true'));
