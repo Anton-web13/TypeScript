@@ -274,10 +274,10 @@ interface IPayment {
     to: number,
 };
 
-enum PaymentStatus {
-    Success = 'success',
-    Failed = 'failed',
-}
+// enum PaymentStatus {
+//     Success = 'success',
+//     Failed = 'failed',
+// }
 
 interface IPaymentRequest extends IPayment {};
 
