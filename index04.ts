@@ -544,56 +544,122 @@ let rowNumer: number = parseInt(row);
 // console.log(rowNumer);
 
 
-interface UserTyppe {
+// interface UserTyppe {
+//     name: string,
+//     email: string,
+//     login: string,
+// };
+////////////////////////////////////////////////////////
+// const userType1: UserTyppe = {
+//     name: 'Vasa',
+//     email: 'vasiliy',
+//     login: 'vaszLogin',
+// };
+
+// const userType2 = {
+//     name: 'Vasa',
+//     email: 'vasiliy',
+//     login: 'vaszLogin',
+// } as UserTyppe;
+
+// const userType3 = <UserTyppe> {
+//     name: 'Vasa',
+//     email: 'vasiliy@gmail.com',
+//     login: 'vaszLogin',
+// };
+////////////////////////////////////////////////////////
+
+// const userType: UserTyppe = {
+//     name: 'Vasa',
+//     email: 'vasiliy',
+//     login: 'vaszLogin',
+// };
+
+
+// interface Admin {
+//     name: string,
+//     role: number,
+// };
+
+// const adminType: Admin = {    // falsch
+//     ...userType,
+//     role: 1, 
+// };
+
+// // const adminType2: Admin = userType;    // falsch
+
+// const userToAdmin = (user: UserTyppe): Admin => {    // richtig, die Umwandling, die nur brauchende Eigenschaften speichert.
+//     return {
+//         name: user.name,
+//         role: 1,
+//     }
+// };
+
+
+//-----------------------032----------------- Type Guard-----------------
+
+interface UserGuard {
     name: string,
     email: string,
     login: string,
 };
-////////////////////////////////////////////////////////
-const userType1: UserTyppe = {
+
+const userType: UserGuard = {
     name: 'Vasa',
     email: 'vasiliy',
     login: 'vaszLogin',
 };
-
-const userType2 = {
-    name: 'Vasa',
-    email: 'vasiliy',
-    login: 'vaszLogin',
-} as UserTyppe;
-
-const userType3 = <UserTyppe> {
-    name: 'Vasa',
-    email: 'vasiliy@gmail.com',
-    login: 'vaszLogin',
-};
-////////////////////////////////////////////////////////
-
-const userType: UserTyppe = {
-    name: 'Vasa',
-    email: 'vasiliy',
-    login: 'vaszLogin',
-};
-
 
 interface Admin {
     name: string,
     role: number,
+}
+
+
+const logIdGuard = (id: string | number) => {
+    // if (typeof id === 'string') {
+    //     console.log(id);                    // string
+    // } else {
+    //     console.log(id);                    // number
+    // }
+
+    if (isStringGuard(id)) {
+        console.log(id);                    // string
+    } else {
+        console.log(id);                    // number
+    }
+
+    // id                                      // string | number
 };
 
-const adminType: Admin = {    // falsch
-    ...userType,
-    role: 1,
+const isStringGuard = (x: string | number): x is string => {
+    return typeof x === 'string';
 };
 
-// const adminType2: Admin = userType;    // falsch
 
-const userToAdmin = (user: UserTyppe): Admin => {    // richtig, die Umwandling, die nur brauchende Eigenschaften speichert.
-    return {
-        name: user.name,
-        role: 1,
+//////////////////////////////////////////////////////////////////
+
+const isAdminGuard = (user: UserGuard | Admin): user is Admin => {
+    return 'role' in user;
+};
+
+const isAdminGuardAlternative = (user: UserGuard | Admin): user is Admin => {
+    return (user as Admin).role !== undefined;
+};
+
+const setRoleGuard = (user: UserGuard | Admin) => {
+    if (isAdminGuard(user)) {
+        user.role = 0;
+    } else {
+        throw new Error('Der User ist nicht Admin.');
     }
 };
+
+
+
+console.log(logIdGuard(6));
+
+
 
 
 

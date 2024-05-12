@@ -274,7 +274,54 @@ if (uNull) {
 //-----------------------031-----------------Приведение типов-----------------
 let letterNumber = 5;
 let letterString = letterNumber.toString();
+let eSting = new String(letterNumber).valueOf();
+let fBoolean = new Boolean(letterNumber).valueOf();
 let row = 'sdfgsdf';
 // let rowNumer: number = +row;
 let rowNumer = parseInt(row);
-console.log(rowNumer);
+// console.log(rowNumer);
+// interface UserTyppe {
+//     name: string,
+//     email: string,
+//     login: string,
+// };
+////////////////////////////////////////////////////////
+const userType1 = {
+    name: 'Vasa',
+    email: 'vasiliy',
+    login: 'vaszLogin',
+};
+const userType2 = {
+    name: 'Vasa',
+    email: 'vasiliy',
+    login: 'vaszLogin',
+};
+const userType3 = {
+    name: 'Vasa',
+    email: 'vasiliy@gmail.com',
+    login: 'vaszLogin',
+};
+;
+const userType = {
+    name: 'Vasa',
+    email: 'vasiliy',
+    login: 'vaszLogin',
+};
+const logIdGuard = (id) => {
+    // if (typeof id === 'string') {
+    //     console.log(id);                    // string
+    // } else {
+    //     console.log(id);                    // number
+    // }
+    if (isStringGuard(id)) {
+        console.log(id); // string
+    }
+    else {
+        console.log(id); // number
+    }
+    // id                                      // string | number
+};
+const isStringGuard = (x) => {
+    return typeof x === 'string';
+};
+console.log(logIdGuard(6));
