@@ -118,11 +118,6 @@ const test = (param) => {
     const t = param !== null && param !== void 0 ? param : multiply(5); // oder param oder multiply(5)
 };
 ;
-var PaymentStatus;
-(function (PaymentStatus) {
-    PaymentStatus["Success"] = "success";
-    PaymentStatus["Failed"] = "failed";
-})(PaymentStatus || (PaymentStatus = {}));
 ;
 ;
 ;
@@ -279,28 +274,6 @@ let fBoolean = new Boolean(letterNumber).valueOf();
 let row = 'sdfgsdf';
 // let rowNumer: number = +row;
 let rowNumer = parseInt(row);
-// console.log(rowNumer);
-// interface UserTyppe {
-//     name: string,
-//     email: string,
-//     login: string,
-// };
-////////////////////////////////////////////////////////
-const userType1 = {
-    name: 'Vasa',
-    email: 'vasiliy',
-    login: 'vaszLogin',
-};
-const userType2 = {
-    name: 'Vasa',
-    email: 'vasiliy',
-    login: 'vaszLogin',
-};
-const userType3 = {
-    name: 'Vasa',
-    email: 'vasiliy@gmail.com',
-    login: 'vaszLogin',
-};
 ;
 const userType = {
     name: 'Vasa',
@@ -323,5 +296,20 @@ const logIdGuard = (id) => {
 };
 const isStringGuard = (x) => {
     return typeof x === 'string';
+};
+//////////////////////////////////////////////////////////////////
+const isAdminGuard = (user) => {
+    return 'role' in user;
+};
+const isAdminGuardAlternative = (user) => {
+    return user.role !== undefined;
+};
+const setRoleGuard = (user) => {
+    if (isAdminGuard(user)) {
+        user.role = 0;
+    }
+    else {
+        throw new Error('Der User ist nicht Admin.');
+    }
 };
 console.log(logIdGuard(6));
