@@ -43,8 +43,35 @@ console.log(adminFalse);
 ////////////////////////////////////////////////////////////
 
 
+//-----------------------036-----------------Constructor-----------------
+console.clear();
 
 
+class UserConstructor {     // Schritt 3
+    nameeeeee: string;
+    age: number;
+
+    constructor();
+    constructor(name: string);
+    constructor(age: number);
+    constructor(name: string, age: number);
+    constructor(ageOrName?: string | number, age?: number) {     // Schritt 2, constructor of implementation
+        if (typeof ageOrName === 'string') {
+            this.nameeeeee = ageOrName;
+        } else if (typeof ageOrName === 'number') {
+            this.age = ageOrName;
+        }
+
+        if (typeof age === 'number') {
+            this.age = age;
+        } 
+    }
+}
+
+const userConstructor = new UserConstructor('Anton');     // Schritt 1
+const userConstructor2 = new UserConstructor();
+const userConstructor3 = new UserConstructor(33);
+const userConstructor4 = new UserConstructor('Anton', 34);
 
 
 

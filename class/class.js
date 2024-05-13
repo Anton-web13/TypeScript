@@ -27,3 +27,22 @@ const adminFalse = new AdminFalse();
 adminFalse.role = 1;
 console.log(adminFalse);
 ////////////////////////////////////////////////////////////
+//-----------------------036-----------------Constructor-----------------
+console.clear();
+class UserConstructor {
+    constructor(ageOrName, age) {
+        if (typeof ageOrName === 'string') {
+            this.nameeeeee = ageOrName;
+        }
+        else if (typeof ageOrName === 'number') {
+            this.age = ageOrName;
+        }
+        if (typeof age === 'number') {
+            this.age = age;
+        }
+    }
+}
+const userConstructor = new UserConstructor('Anton'); // Schritt 1
+const userConstructor2 = new UserConstructor();
+const userConstructor3 = new UserConstructor(33);
+const userConstructor4 = new UserConstructor('Anton', 34);
