@@ -75,6 +75,48 @@ const userConstructor4 = new UserConstructor('Anton', 34);
 
 
 
+//-----------------------037-----------------Method-----------------
+console.clear();
+
+enum PaymentStatusMethod {
+    Holded,
+    Processed,
+    Reversed,
+};
+
+class PaymentMethod {
+    id: number;                      // Eigenschaften des Classes
+    status: PaymentStatusMethod;     // --- // ---
+    createdAt: Date;                 // --- // ---
+    updatesAt: Date;                 // --- // ---
+
+    constructor(id: number) {
+        this.createdAt = new Date();
+        this.id = id;
+        this.status = PaymentStatusMethod.Holded;
+    };
+
+    getPaymenyLifeTime(): number {   // Method des Classes
+        return new Date().getTime() - this.createdAt.getTime(); // this take from constructor
+    }
+
+    unholdPayment(): void {
+        if (this.status == PaymentStatusMethod.Processed) {
+            throw new Error('Die Zahlung kann nicht zurückgegeben werden!');
+        }
+
+        this.status = PaymentStatusMethod.Reversed;
+        this.updatesAt = new Date();
+    }
+};
+
+const payment = new PaymentMethod(1);
+const time = payment.getPaymenyLifeTime();
+payment.unholdPayment();
+
+console.log(payment);
+console.log(time);
+
 
 
 
