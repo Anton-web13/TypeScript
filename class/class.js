@@ -46,8 +46,9 @@ const userConstructor = new UserConstructor('Anton'); // Schritt 1
 const userConstructor2 = new UserConstructor();
 const userConstructor3 = new UserConstructor(33);
 const userConstructor4 = new UserConstructor('Anton', 34);
+// console.log(userConstructor3);
 //-----------------------037-----------------Method-----------------
-console.clear();
+// console.clear();
 var PaymentStatusMethod;
 (function (PaymentStatusMethod) {
     PaymentStatusMethod[PaymentStatusMethod["Holded"] = 0] = "Holded";
@@ -77,5 +78,36 @@ class PaymentMethod {
 const payment = new PaymentMethod(1);
 const time = payment.getPaymenyLifeTime();
 payment.unholdPayment();
-console.log(payment);
-console.log(time);
+// console.log(payment);
+// console.log(time);
+//-----------------------038-----------------Restart of Methods-----------------
+console.clear();
+class UserRestart {
+    addSkill(skillOrSkills) {
+        if (typeof skillOrSkills == 'string') {
+            this.skills.push(skillOrSkills);
+        }
+        else {
+            // this.skills.concat(skillOrSkills);
+        }
+    }
+}
+function runRestart(distance) {
+    if (typeof distance === 'number') {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+// console.log(runRestart(['dfgdg', 'sdghdrth']));
+// console.log(runRestart(665951951));
+class MyClass {
+    constructor(id) {
+        if (typeof id === 'number') {
+            this.id = id;
+        }
+    }
+}
+// const myConstructortttt = new MyClass(1679867986798);
+// console.log(myConstructortttt);

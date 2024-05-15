@@ -73,10 +73,10 @@ const userConstructor2 = new UserConstructor();
 const userConstructor3 = new UserConstructor(33);
 const userConstructor4 = new UserConstructor('Anton', 34);
 
-
+// console.log(userConstructor3);
 
 //-----------------------037-----------------Method-----------------
-console.clear();
+// console.clear();
 
 enum PaymentStatusMethod {
     Holded,
@@ -114,11 +114,73 @@ const payment = new PaymentMethod(1);
 const time = payment.getPaymenyLifeTime();
 payment.unholdPayment();
 
-console.log(payment);
-console.log(time);
+// console.log(payment);
+// console.log(time);
 
 
 
+//-----------------------038-----------------Restart of Methods-----------------
+console.clear();
+
+class UserRestart {
+    skills: string[];
+    // skill: string;
+
+    // constructor(skill: string);
+    // constructor(skillsID: string[]) {
+    //     this.skills = skillsID;
+    // }
+    
+    addSkill(skill: string): void;
+    addSkill(skills: string[]): void;
+    addSkill(skillOrSkills: string | string[]) {
+        if (typeof skillOrSkills == 'string') {
+            this.skills.push(skillOrSkills);
+        } else {
+            // this.skills.concat(skillOrSkills);
+        }
+    }
+}
+
+// const restart = new UserRestart(['xdgfhhdfh', 'dfghdrth']);
+// const restart = new UserRestart('ghukgkgyio');
+// const restart = new UserRestart().addSkill(['sdgfsdrg', 'sdrgserg']);
+// console.log(restart);
+
+
+// const runRestart = (distance: number): void
+// const runRestart = (distance: string): void
+// const runRestart = (distance: number | string): void => {
+
+// }
+
+
+function runRestart(distance: string[]): string[];
+function runRestart(distance: number): number;
+function runRestart(distance: number | string[]): number | string[] {
+    if (typeof distance === 'number') {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+// console.log(runRestart(['dfgdg', 'sdghdrth']));
+// console.log(runRestart(665951951));
+
+
+class MyClass {
+    id: number;
+
+    constructor(id: number) {
+        if (typeof id === 'number') {
+            this.id = id;
+        }
+    }
+}
+
+// const myConstructortttt = new MyClass(1679867986798);
+// console.log(myConstructortttt);
 
 
 
