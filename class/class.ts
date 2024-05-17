@@ -183,6 +183,53 @@ class MyClass {
 // console.log(myConstructortttt);
 
 
+//-----------------------039-----------------Getter und Setter-----------------
+
+
+class UserGetter {
+    _login: string;
+    // _password: string;
+    password: string;
+    createdAt: Date;
+
+    // getLogin(log: string) {
+    //     this.login = 'user' + log;
+    // }
+
+    set login(log: string | number) {
+        this._login = 'user-' + log;
+        this.created = new Date();
+    }
+
+    get login() {
+        return this._login;
+    }
+
+    // set password(pas: string) {
+    //     // nur SYNC und das ist schlecht, weil wir da den Strom blockieren.
+    // }
+
+    async setPassword(pas: string) {
+            // async benutzen wir hier.
+    }
+}
+
+// 'user-'
+
+// const userGetter = new UserGetter();
+// userGetter.login = `user + ${userGetter.login}`;
+
+const userGetter = new UserGetter();
+userGetter.login = `myLogin`;
+
+// userGetter.
+
+console.log(userGetter);
+console.log(userGetter.login);
+
+
+
+
 
 
 
@@ -198,27 +245,27 @@ class MyClass {
 
 //-----------------------040-----------------Implements-----------------
 
-interface ILoggerImplements {
-    log(...args): void;
-    error(...args): void;
-};
+// interface ILoggerImplements {
+//     log(...args): void;
+//     error(...args): void;
+// };
 
 
-class LoggerImplements implements ILoggerImplements {
-    log(...args: any[]): void {
-        console.log(...args);
-    }
+// class LoggerImplements implements ILoggerImplements {
+//     log(...args: any[]): void {
+//         console.log(...args);
+//     }
 
-    // error(...args: any[]): void {
-    //     // hhtp Anfarge
-    //     console.log(...args);
-    // }
+//     // error(...args: any[]): void {
+//     //     // hhtp Anfarge
+//     //     console.log(...args);
+//     // }
 
-    async error(...args: any[]): Promise<void> {
-        // hhtp Anfarge
-        console.log(...args);
-    }
-}
+//     async error(...args: any[]): Promise<void> {
+//         // hhtp Anfarge
+//         console.log(...args);
+//     }
+// }
 
 interface IPayableImplements {
     pay(paymentId: number): void;

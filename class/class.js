@@ -111,3 +111,35 @@ class MyClass {
 }
 // const myConstructortttt = new MyClass(1679867986798);
 // console.log(myConstructortttt);
+//-----------------------039-----------------Getter und Setter-----------------
+class UserGetter {
+    // getLogin(log: string) {
+    //     this.login = 'user' + log;
+    // }
+    set login(log) {
+        this._login = 'user-' + log;
+    }
+    get login() {
+        return this._login;
+    }
+}
+// 'user-'
+// const userGetter = new UserGetter();
+// userGetter.login = `user + ${userGetter.login}`;
+const userGetter = new UserGetter();
+userGetter.login = `myLogin`;
+// userGetter.
+console.log(userGetter);
+console.log(userGetter.login);
+class UserImplements {
+    // pay(paymentId: number): void {
+    //     ///
+    // }
+    pay(paymentId) {
+        ///
+    }
+    delete() {
+    }
+}
+;
+// new UserImplements().
