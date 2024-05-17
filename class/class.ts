@@ -196,6 +196,65 @@ class MyClass {
 
 
 
+//-----------------------040-----------------Implements-----------------
+
+interface ILoggerImplements {
+    log(...args): void;
+    error(...args): void;
+};
+
+
+class LoggerImplements implements ILoggerImplements {
+    log(...args: any[]): void {
+        console.log(...args);
+    }
+
+    // error(...args: any[]): void {
+    //     // hhtp Anfarge
+    //     console.log(...args);
+    // }
+
+    async error(...args: any[]): Promise<void> {
+        // hhtp Anfarge
+        console.log(...args);
+    }
+}
+
+interface IPayableImplements {
+    pay(paymentId: number): void;
+    price?: number;
+}
+
+interface IDeletableImplements{
+    delete(): void;
+}
+
+class UserImplements implements IPayableImplements, IDeletableImplements {
+    // pay(paymentId: number): void {
+    //     ///
+    // }
+
+    pay(paymentId: number | string): void {
+        ///
+    }
+    price?: number | undefined;
+
+    delete(): void {
+        
+    }
+};
+
+// new UserImplements().
+
+
+
+
+
+
+
+
+
+
 
 
 
