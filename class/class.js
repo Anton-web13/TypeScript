@@ -207,4 +207,38 @@ class AdminBesonderheit extends UserBesonderheit {
     }
 }
 ;
-new AdminBesonderheit();
+// new AdminBesonderheit();
+// new Error('');
+class HttpErrorBesonderheit extends Error {
+    constructor(message, code) {
+        super(message);
+        this.code = code !== null && code !== void 0 ? code : 500;
+    }
+}
+//-----------------------043-----------------Komposition gegen Extends-----------------
+class UserKomposition {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class UsersKomposition extends Array {
+    searchByName(name) {
+        return this.filter((some) => some.name === name);
+    }
+    toString() {
+        return this.map((some) => some.name).join(', ');
+    }
+}
+// new UsersKomposition().
+const usersKomposition = new UsersKomposition();
+usersKomposition.push(new UserKomposition('Vasz'));
+usersKomposition.push(new UserKomposition('123'));
+// usersKomposition.push('65165');                 // Error
+// console.log(usersKomposition.toString());
+class UserListKomposition {
+    push(some) {
+        this.users.push(some);
+    }
+}
+const someUsers = new UserListKomposition();
+console.log(someUsers.push(new UserKomposition('5511')));

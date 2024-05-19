@@ -374,14 +374,64 @@ class HttpErrorBesonderheit extends Error {
 }
 
 
+//-----------------------043-----------------Komposition gegen Extends-----------------
 
 
+class UserKomposition {
+    name: string;
+    
+    constructor(name: string){
+        this.name = name;
+    }
+}
+
+class UsersKomposition extends Array<UserKomposition> {
+    searchByName(name: string) {
+        return this.filter((some) => some.name === name );
+    }
+
+    override toString(): string {
+        return this.map((some) => some.name).join(', ');
+    }
+}
+
+// new UsersKomposition().
+
+const usersKomposition = new UsersKomposition();
+usersKomposition.push(new UserKomposition('Vasz'));
+usersKomposition.push(new UserKomposition('123'));
+// usersKomposition.push('65165');                 // Error
+
+// console.log(usersKomposition.toString());
 
 
+class UserListKomposition {                // Komposition
+    users: User[];
+
+    push(some: UserKomposition) {
+        this.users.push(some);
+    }
+}
+
+// const someUsers = new UserListKomposition();
+
+class PaymentKomposition {
+    date: Date;
+};
 
 
+// class UserWithPaymentKomposition extends PaymentKomposition {
+//     name: string;
+// }
+class UserWithPaymentKomposition {                  // Komposition
+    user: UserKomposition;
+    payment: PaymentKomposition;
 
-
+    constructor(user: UserKomposition, payment: PaymentKomposition) {
+        this.payment = payment;
+        this.user = user;
+    }
+}
 
 
 
