@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 //-----------------------035-----------------Create of class-----------------
 console.clear();
 class User {
@@ -118,9 +127,18 @@ class UserGetter {
     // }
     set login(log) {
         this._login = 'user-' + log;
+        this.createdAt = new Date();
     }
     get login() {
         return this._login;
+    }
+    // set password(pas: string) {
+    //     // nur SYNC und das ist schlecht, weil wir da den Strom blockieren.
+    // }
+    setPassword(pas) {
+        return __awaiter(this, void 0, void 0, function* () {
+            // async benutzen wir hier.
+        });
     }
 }
 // 'user-'
@@ -142,4 +160,51 @@ class UserImplements {
     }
 }
 ;
-// new UserImplements().
+class PaymentExtends {
+    constructor(id) {
+        this.status = 'new';
+        this.id = id;
+    }
+    ;
+    pay() {
+        this.status = 'paid';
+    }
+}
+class ParsistendExtendsPayment extends PaymentExtends {
+    constructor() {
+        const id = Math.random();
+        super(id);
+    }
+    ;
+    save() {
+        //
+    }
+    ;
+    pay(date) {
+        super.pay();
+        this.status = 'paid';
+        if (date) {
+            this.paidAt = date;
+        }
+    }
+}
+;
+// new PaymentExtends().
+// new ParsistendExtendsPayment().
+//-----------------------042-----------------Besonderheit von Extends-----------------
+console.clear();
+class UserBesonderheit {
+    constructor() {
+        this.name = 'user';
+        console.log(this.name);
+    }
+}
+class AdminBesonderheit extends UserBesonderheit {
+    constructor() {
+        super();
+        this.name = 'admin';
+        console.log(this.name);
+    }
+}
+;
+new AdminBesonderheit();

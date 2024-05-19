@@ -339,6 +339,45 @@ class ParsistendExtendsPayment extends PaymentExtends {
 
 
 
+//-----------------------042-----------------Besonderheit von Extends-----------------
+
+console.clear();
+
+class UserBesonderheit {
+    name: string = 'user';
+
+    constructor() {
+        console.log(this.name);
+    }
+}
+
+class AdminBesonderheit extends UserBesonderheit {
+    name: string = 'admin';
+
+    constructor() {
+        super();
+        console.log(this.name);
+    }
+};
+
+// new AdminBesonderheit();
+
+
+// new Error('');
+class HttpErrorBesonderheit extends Error {
+    code: number;
+
+    constructor(message: string, code?: number) {
+        super(message);
+        this.code = code ?? 500;
+    }
+}
+
+
+
+
+
+
 
 
 
