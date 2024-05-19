@@ -198,7 +198,7 @@ class UserGetter {
 
     set login(log: string | number) {
         this._login = 'user-' + log;
-        this.created = new Date();
+        this.createdAt = new Date();
     }
 
     get login() {
@@ -295,8 +295,47 @@ class UserImplements implements IPayableImplements, IDeletableImplements {
 
 
 
+//-----------------------041-----------------Extends override-----------------
 
+type PaymentExtendsStatus = 'new' | 'paid';
 
+class PaymentExtends {
+    id: number;
+    status: PaymentExtendsStatus = 'new';
+
+    constructor(id: number) {
+        this.id = id;
+    };
+
+    pay() {
+        this.status = 'paid';
+    }
+}
+
+class ParsistendExtendsPayment extends PaymentExtends {
+    databaseId: number;
+    paidAt: Date;
+
+    constructor() {
+        const id = Math.random();
+        super(id);
+    };
+
+    save() {
+        //
+    };
+
+    override pay(date?: Date) {   // bedeutet, dass diese Methode überschrieben worden ist.
+        super.pay();
+        this.status = 'paid';
+        if (date) {
+            this.paidAt = date;
+        }
+    }
+};
+
+// new PaymentExtends().
+// new ParsistendExtendsPayment().
 
 
 
