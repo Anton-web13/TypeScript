@@ -434,6 +434,59 @@ class UserWithPaymentKomposition {                  // Komposition
 }
 
 
+//-----------------------044-----------------Sicht der Eigenschaften-----------------
+
+console.clear();
+
+// class VehicleSicht {
+//     make: string;                   // so oder
+//     public make: string;            // so
+// }
+
+// new VehicleSicht().make = 'd';
+
+
+class VehicleSicht {
+    public make: string;
+    private damages: string[];
+    private _model: string;
+    protected run: number;
+    #price: number;
+
+    set model(mod: string) {            // damit gewähren wir einen Zugang zur diese Funktion
+        this._model = mod;
+        this.#price = 100;
+    }
+
+    get model() {                       // damit gewähren wir einen Zugang zur diese Funktion
+        this.run;
+        this.damages;
+        return this._model;
+    }
+
+    isPriceEqual(some: VehicleSicht) {
+        return this.#price === some.#price;
+    }
+
+    private addDamage(damage: string) {
+        this.damages.push(damage);
+    }
+}
+
+class EuroTruckSicht extends VehicleSicht {
+    setDamage() {
+        // keinen Zugang zu den privaten Variablen (private), nur zu den öffentlichen(public)
+    }
+
+    setRun(km: number) {
+        this.run = km / 0.62;
+        // this.damage - error
+        // this.price - error
+        // this.#price - error
+    }
+}
+
+// new VehicleSicht().
 
 
 

@@ -8,6 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+};
+var _VehicleSicht_price;
 //-----------------------035-----------------Create of class-----------------
 console.clear();
 class User {
@@ -240,5 +247,53 @@ class UserListKomposition {
         this.users.push(some);
     }
 }
-const someUsers = new UserListKomposition();
-console.log(someUsers.push(new UserKomposition('5511')));
+// const someUsers = new UserListKomposition();
+class PaymentKomposition {
+}
+;
+// class UserWithPaymentKomposition extends PaymentKomposition {
+//     name: string;
+// }
+class UserWithPaymentKomposition {
+    constructor(user, payment) {
+        this.payment = payment;
+        this.user = user;
+    }
+}
+//-----------------------044-----------------Sicht der Eigenschaften-----------------
+console.clear();
+// class VehicleSicht {
+//     make: string;                   // so oder
+//     public make: string;            // so
+// }
+// new VehicleSicht().make = 'd';
+class VehicleSicht {
+    constructor() {
+        _VehicleSicht_price.set(this, void 0);
+    }
+    set model(mod) {
+        this._model = mod;
+        __classPrivateFieldSet(this, _VehicleSicht_price, 100, "f");
+    }
+    get model() {
+        this.run;
+        this.damages;
+        return this._model;
+    }
+    addDamage(damage) {
+        this.damages.push(damage);
+    }
+}
+_VehicleSicht_price = new WeakMap();
+class EuroTruckSicht extends VehicleSicht {
+    setDamage() {
+        // keinen Zugang zu den privaten Variablen (private), nur zu den öffentlichen(public)
+    }
+    setRun(km) {
+        this.run = km / 0.62;
+        // this.damage - error
+        // this.price - error
+        // this.#price - error
+    }
+}
+// new VehicleSicht().
