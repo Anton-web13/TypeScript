@@ -489,6 +489,88 @@ class EuroTruckSicht extends VehicleSicht {
 // new VehicleSicht().
 
 
+//-----------------------045-----------------Übung-----------------
+
+console.clear();
+
+class ProductÜbung {
+    constructor(
+        public id: number,
+        public title: string,
+        public price: number,
+    ) { };
+}
+
+class DeliveryÜbung {
+    constructor(
+        public date: Date,
+    ) { };
+}
+
+class HomeDeliveryÜbung extends DeliveryÜbung{
+    constructor(date: Date, public address: string) {
+        super(date);
+    };
+}
+
+class ShopDeliveryÜbung extends DeliveryÜbung{
+    constructor(public shopId: number) {
+        super(new Date());
+    };
+}
+
+type DeliveryOptions = HomeDeliveryÜbung | ShopDeliveryÜbung;
+
+class CartÜbung {
+    private products: ProductÜbung[] = [];
+    private delivery: DeliveryOptions;
+
+    public addProduct(product: ProductÜbung): void {
+        this.products.push(product);
+    }
+
+    public deleteProduct(productId: number): void {
+        this.products = this.products.filter((p: ProductÜbung) => p.id !== productId);
+    }
+
+    public getSum(): number {
+        return this.products
+            .map((p: ProductÜbung) => p.price)
+            .reduce((p1: number, p2: number) => p1 + p2);
+    }
+
+    public setDelevery(delivery: DeliveryOptions): void {
+        this.delivery = delivery;
+    }
+
+    public checkOut() {
+        if (this.products.length == 0) {
+            throw new Error('Es gibt keine Waren im Korb'); 
+        }
+
+        if (!this.delivery) {
+            throw new Error('Die Lieferung ist nicht eingewiesen'); 
+        }
+
+        return {success: true};
+    }
+}
+
+const cartÜbung = new CartÜbung();
+cartÜbung.addProduct(new ProductÜbung(1, 'Cake', 10));
+cartÜbung.addProduct(new ProductÜbung(2, 'Kuchen', 30));
+cartÜbung.addProduct(new ProductÜbung(3, 'Chocolate', 20));
+cartÜbung.deleteProduct(1);
+cartÜbung.setDelevery(new HomeDeliveryÜbung(new Date(), 'to Berlin'));
+
+console.log(cartÜbung);
+console.log(cartÜbung.getSum());
+console.log(cartÜbung.checkOut());
+
+
+
+
+
 
 
 

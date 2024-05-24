@@ -14,6 +14,11 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+};
 var _VehicleSicht_price;
 //-----------------------035-----------------Create of class-----------------
 console.clear();
@@ -280,6 +285,9 @@ class VehicleSicht {
         this.damages;
         return this._model;
     }
+    isPriceEqual(some) {
+        return __classPrivateFieldGet(this, _VehicleSicht_price, "f") === __classPrivateFieldGet(some, _VehicleSicht_price, "f");
+    }
     addDamage(damage) {
         this.damages.push(damage);
     }
@@ -297,3 +305,70 @@ class EuroTruckSicht extends VehicleSicht {
     }
 }
 // new VehicleSicht().
+//-----------------------045-----------------Übung-----------------
+console.clear();
+class ProductÜbung {
+    constructor(id, title, price) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+    }
+    ;
+}
+class DeliveryÜbung {
+    constructor(date) {
+        this.date = date;
+    }
+    ;
+}
+class HomeDeliveryÜbung extends DeliveryÜbung {
+    constructor(date, address) {
+        super(date);
+        this.address = address;
+    }
+    ;
+}
+class ShopDeliveryÜbung extends DeliveryÜbung {
+    constructor(shopId) {
+        super(new Date());
+        this.shopId = shopId;
+    }
+    ;
+}
+class CartÜbung {
+    constructor() {
+        this.products = [];
+    }
+    addProduct(product) {
+        this.products.push(product);
+    }
+    deleteProduct(productId) {
+        this.products = this.products.filter((p) => p.id !== productId);
+    }
+    getSum() {
+        return this.products
+            .map((p) => p.price)
+            .reduce((p1, p2) => p1 + p2);
+    }
+    setDelevery(delivery) {
+        this.delivery = delivery;
+    }
+    checkOut() {
+        if (this.products.length == 0) {
+            throw new Error('Es gibt keine Waren im Korb');
+        }
+        if (!this.delivery) {
+            throw new Error('Die Lieferung ist nicht eingewiesen');
+        }
+        return { success: true };
+    }
+}
+const cartÜbung = new CartÜbung();
+cartÜbung.addProduct(new ProductÜbung(1, 'Cake', 10));
+cartÜbung.addProduct(new ProductÜbung(2, 'Kuchen', 30));
+cartÜbung.addProduct(new ProductÜbung(3, 'Chocolate', 20));
+cartÜbung.deleteProduct(1);
+// cartÜbung.setDelevery(new HomeDeliveryÜbung(new Date(), 'to Berlin'));
+console.log(cartÜbung);
+console.log(cartÜbung.getSum());
+console.log(cartÜbung.checkOut());
