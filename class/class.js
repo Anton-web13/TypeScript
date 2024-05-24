@@ -368,7 +368,34 @@ cartÜbung.addProduct(new ProductÜbung(1, 'Cake', 10));
 cartÜbung.addProduct(new ProductÜbung(2, 'Kuchen', 30));
 cartÜbung.addProduct(new ProductÜbung(3, 'Chocolate', 20));
 cartÜbung.deleteProduct(1);
-// cartÜbung.setDelevery(new HomeDeliveryÜbung(new Date(), 'to Berlin'));
-console.log(cartÜbung);
-console.log(cartÜbung.getSum());
-console.log(cartÜbung.checkOut());
+cartÜbung.setDelevery(new HomeDeliveryÜbung(new Date(), 'to Berlin'));
+// console.log(cartÜbung);
+// console.log(cartÜbung.getSum());
+// console.log(cartÜbung.checkOut());
+//----------------------------------------Einprägung-----------------
+console.clear();
+class Autos {
+    constructor(motor, carColor, carId) {
+        this.motor = motor;
+        this.carColor = carColor;
+        this.carId = carId;
+        this.motor = `${this.motor} from ${new Date().getTime()}`;
+    }
+}
+class Fabrik {
+    constructor() {
+        this.products = [];
+    }
+    addCars(car) {
+        this.products.push(car);
+    }
+}
+const result = new Fabrik();
+result.addCars(new Autos('gas', 'white', 1));
+result.addCars(new Autos('benzin', 'orange', 2));
+result.addCars(new Autos('disel', 'black', 3));
+result.addCars(new Autos('elektro', 'blue', 4));
+// console.log(result);
+for (let i = 0; i <= result.products.length; i++) {
+    console.log(result.products[i]);
+}
