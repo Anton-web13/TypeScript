@@ -397,5 +397,16 @@ result.addCars(new Autos('disel', 'black', 3));
 result.addCars(new Autos('elektro', 'blue', 4));
 // console.log(result);
 for (let i = 0; i <= result.products.length; i++) {
-    console.log(result.products[i]);
+    // console.log(result.products[i]);
 }
+//-----------------------046-----------------Statische Eigenschaften-----------------
+console.clear();
+class UserServiceStat {
+    static getUser(id) {
+        console.log(this.db.findById(id));
+        return this.db.findById(id);
+    }
+}
+;
+UserServiceStat.getUser(1);
+// UserServiceStat.db

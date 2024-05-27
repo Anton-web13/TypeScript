@@ -600,8 +600,47 @@ result.addCars(new Autos('elektro', 'blue', 4));
 // console.log(result);
 
 for (let i = 0; i <= result.products.length; i++) {
-    console.log(result.products[i]);
+    // console.log(result.products[i]);
 }
+
+
+
+//-----------------------046-----------------Statische Eigenschaften-----------------
+
+console.clear();
+
+
+class UserServiceStat {
+    // static name: string = 'sdfgdg';    // here we can't use NAME
+    name: string = 'sdfgdg';    // here we can use NAME
+
+    // static db: any;
+    private static db: any;
+
+    static async getUser(id: number) {
+        // console.log(this.db.findById(id));
+        return UserServiceStat.db.findById(id);
+    };
+
+    constructor(id: number) {}
+
+    create() {
+        UserServiceStat.db;
+    };
+
+    static {
+        // await new = Promise();    // this we can't use here
+        UserServiceStat.db = 'zdfgdfg';
+    }
+};
+
+UserServiceStat.getUser(1);    // we can't send in a constructor anything 
+
+// UserServiceStat.db
+
+const instance = new UserServiceStat(1);   // here we can send something in constructor
+instance.create();
+
 
 
 
