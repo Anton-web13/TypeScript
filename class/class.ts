@@ -606,7 +606,6 @@ for (let i = 0; i <= result.products.length; i++) {
 
 
 //-----------------------046-----------------Statische Eigenschaften-----------------
-
 console.clear();
 
 
@@ -619,7 +618,7 @@ class UserServiceStat {
 
     static async getUser(id: number) {
         // console.log(this.db.findById(id));
-        return UserServiceStat.db.findById(id);
+        // return UserServiceStat.db.findById(id);
     };
 
     constructor(id: number) {}
@@ -640,6 +639,47 @@ UserServiceStat.getUser(1);    // we can't send in a constructor anything
 
 const instance = new UserServiceStat(1);   // here we can send something in constructor
 instance.create();
+
+
+//-----------------------047-----------------this-----------------
+console.clear();
+
+class PaymentThis {
+    private date: Date = new Date();
+
+    getDate(this: PaymentThis) {
+        return this.date;
+    }
+
+    getDateArrow = () => {
+        return this.date;
+    }
+};
+
+const resultThis = new PaymentThis();
+
+const userThis = {
+    id: 1,
+    // paymentDate: resultThis.getDate,                 // not Date
+    paymentDate: resultThis.getDate.bind(resultThis),   // it's Date
+    // paymentDate: resultThis.getDate,   // it's Date
+    paymentDateArrow: resultThis.getDateArrow,   // it's Date
+}
+
+
+// console.log(resultThis.getDate());
+// console.log(userThis.paymentDate());
+// console.log(userThis.paymentDateArrow());
+
+class PaymentPersistent extends PaymentThis {
+    save() {
+        // return super.getDate();    // with the SUPER we call getDate in PaymentThis
+        // return super.getDateArrow();    // ERROR
+        return this.getDateArrow();    // not the ERROR
+    }
+}
+
+console.log(new PaymentPersistent().save());
 
 
 

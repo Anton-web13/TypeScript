@@ -403,10 +403,60 @@ for (let i = 0; i <= result.products.length; i++) {
 console.clear();
 class UserServiceStat {
     static getUser(id) {
-        console.log(this.db.findById(id));
-        return this.db.findById(id);
+        return __awaiter(this, void 0, void 0, function* () {
+            // console.log(this.db.findById(id));
+            // return UserServiceStat.db.findById(id);
+        });
+    }
+    ;
+    constructor(id) {
+        // static name: string = 'sdfgdg';    // here we can't use NAME
+        this.name = 'sdfgdg'; // here we can use NAME
+    }
+    create() {
+        UserServiceStat.db;
+    }
+    ;
+}
+(() => {
+    // await new = Promise();    // this we can't use here
+    UserServiceStat.db = 'zdfgdfg';
+})();
+;
+UserServiceStat.getUser(1); // we can't send in a constructor anything 
+// UserServiceStat.db
+const instance = new UserServiceStat(1); // here we can send something in constructor
+instance.create();
+//-----------------------04-----------------this-----------------
+console.clear();
+class PaymentThis {
+    constructor() {
+        this.date = new Date();
+        this.getDateArrow = () => {
+            return this.date;
+        };
+    }
+    getDate() {
+        return this.date;
     }
 }
 ;
-UserServiceStat.getUser(1);
-// UserServiceStat.db
+const resultThis = new PaymentThis();
+const userThis = {
+    id: 1,
+    // paymentDate: resultThis.getDate,                 // not Date
+    paymentDate: resultThis.getDate.bind(resultThis), // it's Date
+    // paymentDate: resultThis.getDate,   // it's Date
+    paymentDateArrow: resultThis.getDateArrow, // it's Date
+};
+// console.log(resultThis.getDate());
+// console.log(userThis.paymentDate());
+// console.log(userThis.paymentDateArrow());
+class PaymentPersistent extends PaymentThis {
+    save() {
+        // return super.getDate();    // with the SUPER we call getDate in PaymentThis
+        // return super.getDateArrow();    // ERROR
+        return this.getDateArrow(); // not the ERROR
+    }
+}
+console.log(new PaymentPersistent().save());
