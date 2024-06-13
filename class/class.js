@@ -427,7 +427,7 @@ UserServiceStat.getUser(1); // we can't send in a constructor anything
 // UserServiceStat.db
 const instance = new UserServiceStat(1); // here we can send something in constructor
 instance.create();
-//-----------------------04-----------------this-----------------
+//-----------------------047-----------------this-----------------
 console.clear();
 class PaymentThis {
     constructor() {
@@ -459,4 +459,17 @@ class PaymentPersistent extends PaymentThis {
         return this.getDateArrow(); // not the ERROR
     }
 }
-console.log(new PaymentPersistent().save());
+// console.log(new PaymentPersistent().save());
+//-----------------------048-----------------Type this-----------------
+class UserBuilderThis {
+    setName(name) {
+        this.name = name;
+        return this;
+    }
+}
+class AdminBuilderThis extends UserBuilderThis {
+}
+const resThisType = new UserBuilderThis().setName('Name');
+const resAdmin = new AdminBuilderThis().setName('NameAnton');
+console.log(resThisType);
+console.log(resAdmin);

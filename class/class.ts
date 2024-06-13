@@ -679,11 +679,41 @@ class PaymentPersistent extends PaymentThis {
     }
 }
 
-console.log(new PaymentPersistent().save());
+// console.log(new PaymentPersistent().save());
 
 
+//-----------------------048-----------------Type this-----------------
 
+class UserBuilderThis {
+    name: string;
 
+    setName (name: string): this {
+        this.name = name;
+        return this;
+    }
+
+    isAdmin(): this is AdminBuilderThis {
+        return this instanceof AdminBuilderThis;
+    }
+}
+
+class AdminBuilderThis extends UserBuilderThis {
+    roles: string[];
+}
+
+const resThisType = new UserBuilderThis().setName('Name');
+const resAdmin = new AdminBuilderThis().setName('NameAnton');
+
+console.log(resThisType);
+console.log(resAdmin);
+
+let userTypeThis: UserBuilderThis | AdminBuilderThis = new UserBuilderThis();
+
+if (userTypeThis.isAdmin()) {
+    console.log(userTypeThis);
+} else {
+    console.log(userTypeThis);
+}
 
 
 
